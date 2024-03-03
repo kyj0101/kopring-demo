@@ -7,10 +7,10 @@ import jakarta.persistence.Id
 
 @Entity
 class MemberEntity (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
     val name: String,
 ){
+    @Id
+    @GeneratedValue
+    var id: Long? = null
 
 }
