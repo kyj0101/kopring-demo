@@ -2,6 +2,7 @@ package com.kopring
 
 import com.kopring.dto.MemberDto
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -37,6 +38,12 @@ class MemberController (
     @PutMapping("/members")
     fun updateMember(@RequestBody memberDto : MemberDto) : MemberDto {
         return memberService.updateMember(memberDto)
+    }
+
+    @ResponseBody
+    @DeleteMapping("/members/{id}")
+    fun deleteMember(@PathVariable("id") id : Long) {
+        memberService.deleteMember(id)
     }
 
 }

@@ -51,4 +51,9 @@ class MemberService (
         println(memberDto.name)
         return MemberDto(findMember.id, findMember.name)
     }
+
+    @Transactional
+    fun deleteMember(id: Long) {
+        memberRepository.deleteById(id)
+    }
 }
