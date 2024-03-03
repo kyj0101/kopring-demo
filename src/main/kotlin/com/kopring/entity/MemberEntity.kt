@@ -7,7 +7,7 @@ import jakarta.persistence.Id
 
 @Entity
 class MemberEntity (
-    val name: String,
+    var name: String,
 ){
     @Id
     @GeneratedValue
