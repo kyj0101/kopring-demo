@@ -11,9 +11,21 @@ class MemberService (
 
     fun createMember(name : String): MemberDto {
 
-        val member = MemberEntity("name")
+        val member = MemberEntity(name)
         memberRepository.save(member)
 
         return MemberDto(member.id, member.name);
+    }
+
+    fun findMemberList() : List<MemberDto> {
+
+        val findAll = memberRepository.findAll()
+        val memberList = ArrayList<MemberDto>()
+
+        for (memberEntity in findAll) {
+            memberList.add(MemberDto(memberEntity.id, memberEntity.name))
+        }
+
+        return memberList
     }
 }
